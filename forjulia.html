@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Garden of Gratitude</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      font-family: 'Georgia', serif;
+      color: #4b3f35;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #ffcce6;
+      text-align: center;
+      padding: 50px 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      color: #b25284;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      color: #a55577;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 40px 20px;
+      background-color: #ffffff;
+    }
+
+    .form-section {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .form-section input[type="text"] {
+      width: 80%;
+      padding: 12px;
+      font-size: 1em;
+      font-family: 'Georgia', serif;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: 1px solid #f4b6cd;
+      background-color: #ffffff;
+    }
+    .form-section button {
+      background-color: #b0e4bb;;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      font-family: 'Georgia', serif;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      transition: transform 0.2s ease;
+    }
+    .form-section button:hover {
+      background-color: #9edab0;
+      transform: scale(1.1);
+    }
+
+    .garden {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      gap: 20px;
+      justify-content: center;
+    }
+    .flower {
+        width: 160px;
+        height: 160px;
+        background: radial-gradient(circle, #ffe8f2 0%, #ffcde4 100%);
+        border: 1px solid #f7b6d6;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: 'Georgia', serif;
+        font-size: 1em;
+        position: relative;
+}
+    .flower::before {
+      content: "❁";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>gratitude garden</h1>
+    <p>plant a new gratitude each day and watch your garden bloom!</p>
+  </header>
+
+  <div class="container">
+    <div class="form-section">
+      <input type="text" id="gratitudeInput" placeholder="today i'm grateful for...">
+      <br>
+      <button onclick="plantGratitude()">plant a flower</button>
+    </div>
+
+    <div class="garden" id="garden"></div>
+  </div>
+
+  <script>
+    function plantGratitude() {
+      const input = document.getElementById("gratitudeInput");
+      const text = input.value.trim();
+      if (text !== "") {
+        const flower = document.createElement("div");
+        flower.className = "flower";
+        flower.textContent = text;
+        document.getElementById("garden").appendChild(flower);
+        input.value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>
